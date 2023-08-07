@@ -2,7 +2,7 @@
 
 <p>Basic bigram and trigram <a href="https://en.wikipedia.org/wiki/N-gram">(read...)</a> model written in Python using only numpy.</p>
 
-<p>Based on <a href="https://github.com/karpathy/makemore">Karpathy's</a> bigram model shown in his makemore lectures.</p>
+<p>Based on <a href="https://github.com/karpathy/makemore" target="_blank">Karpathy's</a> bigram model shown in his makemore lectures.</p>
 <br>
 <img src="preview.png" width="250px">
 <br>

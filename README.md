@@ -6,7 +6,6 @@
 <br>
 <img src="preview.png" width="250px">
 <br>
-<br>
 <p>Dependencies:</p>
 <ul>
     <li>Numpy</li>

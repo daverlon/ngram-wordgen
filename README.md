@@ -5,11 +5,14 @@
 <p>Based on <a href="https://github.com/karpathy/makemore" target="_blank">Karpathy's</a> bigram model shown in his makemore lectures.</p>
 
 <p>Example usage:</p>
-<pre><p>python3 ngram.py -fdatasets/names.txt -n6 -N30 |> out.txt</p></pre>
+<pre><p>python3 ngram.py -fdatasets/names.txt -n6 -N30 --skip-existing --show-existing |> out.txt</p></pre>
 <ul>
     <li>-fdatasets/names.txt (use the file located at ./datasets/names.txt)</li>
     <li>-n6 (6-gram model) - required</li>
-    <li>-N30 (generate 30 names) - required</li>
+    <li>-N30 (generate 30 words) - required</li>
+    <li>--skip-existing (skip word generations that already exist in the dataset) - optional</li>
+    <li>--show-existing (display "✓" after words that already exist in the dataset) - optional</li>
+
     <li>|> out.txt (save generated words into a file, e.g. out.txt) - optional</li>
 </ul>
 <p>Words with a "✓" already exist in the dataset used.</p>
@@ -31,7 +34,7 @@
 <p>Todo:</p>
 <ul>
     <li>Option to save probabilities</li>
-    <li>Option to only count non-existing unique generations</li>
+    <s><li>Option to only count non-existing unique generations</li></s>
     <s><li>Automatic <b>n-gram</b> probability distributions generator</li></s>
 </ul>
 

@@ -21,6 +21,7 @@ if __name__ == "__main__":
   parser.add_argument("-n", "--ngram", type=int, required=True, help="Value of n for n-grams")
   parser.add_argument("-N", "--num-names", type=int, required=True, help="Value of n for n-grams")
   parser.add_argument("--show-existing", action=argparse.BooleanOptionalAction, help='Display "✓" for pre-existing word generations')
+  parser.add_argument("--skip-existing", action=argparse.BooleanOptionalAction, help='Skips generations which already exist in the dataset')
 
 
   args = parser.parse_args()
@@ -31,6 +32,7 @@ if __name__ == "__main__":
   assert n >= 2
 
   words = prep_names(filename, n)
+  words_clean = [w.replace('<','').replace('>','') for w in words]
   chars = sorted(list(set(''.join(words))))
   #print(chars)
   l = len(chars)
@@ -57,8 +59,8 @@ if __name__ == "__main__":
 
   outs = []
 
-  for i in range(k):
-
+  while len(outs) < k:
+  #for i in range(k):
     out = []
     for i in range(n-1): out.append('<')
     Cs = stoi2(out[-(n-1):])
@@ -68,10 +70,12 @@ if __name__ == "__main__":
       out.append(itos[Cn])
       if Cn == 1: break # > (end)
       Cs = stoi2(out[-(n-1):])
-    outs.append(''.join(out).replace('<','').replace('>',''))
+    gen = ''.join(out).replace('<','').replace('>','')
+    if args.skip_existing and gen in words_clean: continue
+    outs.append(gen)
 
   for word in outs:
-    if args.show_existing and word in [w.replace('<','').replace('>','') for w in words]:
+    if args.show_existing and word in words_clean:
       print(word, "✓")
     else:
       print(word)

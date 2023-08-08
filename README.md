@@ -31,3 +31,11 @@
     <li>Option to save probabilities</li>
     <s><li>Automatic <b>n-gram</b> probability distributions generator</li></s>
 </ul>
+
+<br>
+
+<p>Thanks</p>
+<ul>
+<li><a href="https://www.ssa.gov/oact/babynames/" target="_blank">SSA.gov baby names dataset</a>
+<li><a href="https://github.com/first20hours/google-10000-english/tree/master" target="_blank">common english words dataset</a></li>
+</ul>

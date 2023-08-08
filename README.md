@@ -5,8 +5,9 @@
 <p>Based on <a href="https://github.com/karpathy/makemore" target="_blank">Karpathy's</a> bigram model shown in his makemore lectures.</p>
 
 <p>Example usage:</p>
-<pre><p>python3 ngram.py -n6 -N30</p></pre>
+<pre><p>python3 ngram.py -fdatasets/names.txt -n6 -N30</p></pre>
 <ul>
+    <li>-fdatasets/names.txt (use the file located at ./datasets/names.txt)</li>
     <li>-n6 (6-gram model)</li>
     <li>-N30 (generate 30 names)</li>
 </ul>

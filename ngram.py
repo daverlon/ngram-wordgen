@@ -16,16 +16,19 @@ if __name__ == "__main__":
   np.set_printoptions(suppress=True)
   #g = default_rng(1337)
   parser = argparse.ArgumentParser(description="N-gram model for name generation")
+  parser.add_argument("-f", "--file", type=str, required=True, help="File to learn from")
   parser.add_argument("-n", "--ngram", type=int, required=True, help="Value of n for n-grams")
   parser.add_argument("-N", "--num_names", type=int, required=True, help="Value of n for n-grams")
 
+
   args = parser.parse_args()
+  filename = args.file
   n = args.ngram
   k = args.num_names
 
   assert n >= 2
 
-  names = prep_names("datasets/names.txt", n)
+  names = prep_names(filename, n)
   chars = sorted(list(set(''.join(names))))
   stoi = { s:i for i,s in enumerate(chars) }
   itos = { i:s for s,i in stoi.items() }

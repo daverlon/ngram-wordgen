@@ -34,7 +34,7 @@
 
 <br>
 
-<p>Thanks</p>
+<p>Thanks:</p>
 <ul>
 <li><a href="https://www.ssa.gov/oact/babynames/" target="_blank">SSA.gov baby names dataset</a>
 <li><a href="https://github.com/first20hours/google-10000-english/tree/master" target="_blank">common english words dataset</a></li>

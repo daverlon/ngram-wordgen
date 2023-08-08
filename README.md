@@ -1,6 +1,6 @@
-<h1>Name generation with N-gram probabilities</h1>
+<h1>Word generator using N-gram probabilities</h1>
 
-<p>Name generator using <a href="https://en.wikipedia.org/wiki/N-gram">N-gram</a> probabilities written in Python using only numpy.</p>
+<p>Word generator using <a href="https://en.wikipedia.org/wiki/N-gram">N-gram</a> probabilities written in Python using only numpy.</p>
 
 <p>Based on <a href="https://github.com/karpathy/makemore" target="_blank">Karpathy's</a> bigram model shown in his makemore lectures.</p>
 

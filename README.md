@@ -13,5 +13,5 @@
 <br>
 <p>Todo:</p>
 <ul>
-    <li>Automatic <b>n-gram</b> probability distributions generator</li>
+    <s><li>Automatic <b>n-gram</b> probability distributions generator</li></s>
 </ul>

@@ -54,6 +54,8 @@ if __name__ == "__main__":
 
   stoi2 = lambda aa: tuple([stoi[a] for a in aa])
 
+  outs = []
+
   for i in range(k):
 
     out = []
@@ -65,4 +67,10 @@ if __name__ == "__main__":
       out.append(itos[Cn])
       if Cn == 1: break # > (end)
       Cs = stoi2(out[-(n-1):])
-    print(''.join(out).replace('<','').replace('>',''))
+    outs.append(''.join(out).replace('<','').replace('>',''))
+
+  for word in outs:
+    if word in [w.replace('<','').replace('>','') for w in words]:
+      print(word, "✓")
+    else:
+      print(word)

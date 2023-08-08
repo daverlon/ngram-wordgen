@@ -72,6 +72,7 @@ if __name__ == "__main__":
       if Cn == endc: break # > (end)
       Cs = stoi2(out[-(n-1):])
     gen = ''.join(out).replace('<','').replace('>','')
+    if gen in outs: continue
     if args.skip_existing and gen in words_clean: continue
     outs.append(gen)
 

@@ -27,5 +27,6 @@
 
 <p>Todo:</p>
 <ul>
+    <li>Option to save probabilities</li>
     <s><li>Automatic <b>n-gram</b> probability distributions generator</li></s>
 </ul>

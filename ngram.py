@@ -34,6 +34,7 @@ if __name__ == "__main__":
   words = prep_names(filename, n)
   words_clean = [w.replace('<','').replace('>','') for w in words]
   chars = sorted(list(set(''.join(words))))
+  endc = chars.index('>')
   #print(chars)
   l = len(chars)
   stoi = { s:i for i,s in enumerate(chars) }
@@ -68,7 +69,7 @@ if __name__ == "__main__":
       Cn = multinomial(1, ngrams[Cs]).argmax()
       #print(Cn)
       out.append(itos[Cn])
-      if Cn == 1: break # > (end)
+      if Cn == endc: break # > (end)
       Cs = stoi2(out[-(n-1):])
     gen = ''.join(out).replace('<','').replace('>','')
     if args.skip_existing and gen in words_clean: continue

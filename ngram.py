@@ -19,7 +19,8 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser(description="N-gram model for name generation")
   parser.add_argument("-f", "--file", type=str, required=True, help="File to learn from")
   parser.add_argument("-n", "--ngram", type=int, required=True, help="Value of n for n-grams")
-  parser.add_argument("-N", "--num_names", type=int, required=True, help="Value of n for n-grams")
+  parser.add_argument("-N", "--num-names", type=int, required=True, help="Value of n for n-grams")
+  parser.add_argument("--show-existing", action=argparse.BooleanOptionalAction, help='Display "✓" for pre-existing word generations')
 
 
   args = parser.parse_args()
@@ -70,7 +71,7 @@ if __name__ == "__main__":
     outs.append(''.join(out).replace('<','').replace('>',''))
 
   for word in outs:
-    if word in [w.replace('<','').replace('>','') for w in words]:
+    if args.show_existing and word in [w.replace('<','').replace('>','') for w in words]:
       print(word, "✓")
     else:
       print(word)

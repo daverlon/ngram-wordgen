@@ -7,15 +7,13 @@
 <p>Example usage:</p>
 <pre><p>python3 ngram.py -fdatasets/names.txt -n6 -N30 --skip-existing --show-existing |> out.txt</p></pre>
 <ul>
-    <li>-fdatasets/names.txt (use the file located at ./datasets/names.txt)</li>
-    <li>-n6 (6-gram model) - required</li>
-    <li>-N30 (generate 30 words) - required</li>
+    <li>-fdatasets/names.txt (use the file located at ./datasets/names.txt) - <b>required</b></li>
+    <li>-n6 (6-gram model) - <b>required</b></li>
+    <li>-N30 (generate 30 words) - <b>required</b></li>
     <li>--skip-existing (skip word generations that already exist in the dataset) - optional</li>
     <li>--show-existing (display "✓" after words that already exist in the dataset) - optional</li>
-
     <li>|> out.txt (save generated words into a file, e.g. out.txt) - optional</li>
 </ul>
-<p>Words with a "✓" already exist in the dataset used.</p>
 
 <br>
 

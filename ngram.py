@@ -6,10 +6,11 @@ from tqdm import tqdm
 
 def prep_names(file, n=1):
   words = []
-  sep = "." * (n-1)
+  start = "<" * (n-1) # padding
+  end = ">"
   with open(file, 'r') as f:
     for line in f.readlines():
-      words.append(sep + line.replace("\n", "") + sep)
+      words.append(start + line.replace("\n", "") + end)
   return words
 
 if __name__ == "__main__":
@@ -28,15 +29,17 @@ if __name__ == "__main__":
 
   assert n >= 2
 
-  names = prep_names(filename, n)
-  chars = sorted(list(set(''.join(names))))
+  words = prep_names(filename, n)
+  chars = sorted(list(set(''.join(words))))
+  #print(chars)
+  l = len(chars)
   stoi = { s:i for i,s in enumerate(chars) }
   itos = { i:s for s,i in stoi.items() }
 
-  ngrams = np.zeros((27,)*n)
+  ngrams = np.zeros((l,)*n)
 
-  for name in tqdm(names, desc=f"Counting {n}-grams"):
-    for group in zip(*(islice(name, i, None) for i in range(n))):
+  for word in tqdm(words, desc=f"Counting {n}-grams"):
+    for group in zip(*(islice(word, i, None) for i in range(n))):
       c_values = group
       i_values = np.array([stoi[c] for c in c_values])
       pos = tuple(i_values[:n-1])
@@ -54,12 +57,12 @@ if __name__ == "__main__":
   for i in range(k):
 
     out = []
-    for i in range(n-1): out.append('.')
+    for i in range(n-1): out.append('<')
     Cs = stoi2(out[-(n-1):])
     while True:
       Cn = multinomial(1, ngrams[Cs]).argmax()
       #print(Cn)
       out.append(itos[Cn])
-      if Cn == 0: break
+      if Cn == 1: break # > (end)
       Cs = stoi2(out[-(n-1):])
-    print(''.join(out).replace('.',''))
+    print(''.join(out).replace('<','').replace('>',''))
